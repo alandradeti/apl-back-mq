@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { HEALTH_CHECK_MESSAGE } from '../constants/health.contant';
+import { HEALTH_CHECK_MESSAGE } from '../constants/health.constant';
 
 /**
  * Health check service for the API.

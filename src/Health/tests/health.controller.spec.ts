@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { HealthModule } from '../health.module';
+import { HEALTH_CHECK_MESSAGE } from '../constants/health.constant';
 
 /**
  * Test suite for the HealthController.
@@ -31,7 +32,7 @@ describe('HealthController', () => {
    * Test case to verify the `/health` endpoint.
    * This test sends a GET request to the `/health` route and expects:
    * - A 200 HTTP status code.
-   * - The response body to be 'OK', indicating that the API is running properly.
+   * - The response body indicating that the API is running properly.
    *
    * @it - Describes the behavior of the `/health` GET endpoint.
    */
@@ -39,7 +40,7 @@ describe('HealthController', () => {
     return request(app.getHttpServer())
       .get('/health')
       .expect(200)
-      .expect('API - apl-back-mq is running!');
+      .expect(HEALTH_CHECK_MESSAGE);
   });
 
   /**
